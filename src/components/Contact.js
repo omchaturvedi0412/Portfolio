@@ -39,7 +39,7 @@ const Contact = ({ darkMode }) => {
   };
 
   return (
-    <section className={`contact-section ${darkMode ? "dark" : ""}`}>
+    <section id="contact" className={`contact-section ${darkMode ? "dark" : ""}`}>
       <h2 className="contact-title">Let's Connect</h2>
 
       <form onSubmit={handleSubmit} className="contact-form">

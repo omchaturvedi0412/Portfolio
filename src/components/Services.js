@@ -27,11 +27,17 @@ const services = [
     description:
       "Smooth, eye-catching UI/UX using Framer Motion, GSAP, and modern design principles.",
   },
+  {
+    title: "Video Editing",
+    icon: "🎬",
+    description:
+      "Creating engaging video content with Capcut.",
+  },
 ];
 
 const Services = ({ darkMode }) => {
   return (
-    <section className={`services-section ${darkMode ? "dark" : ""}`}>
+    <section id="services" className={`services-section ${darkMode ? "dark" : ""}`}>
       <h2 className="services-title">My Services</h2>
       <div className="services-grid">
         {services.map((service, index) => (

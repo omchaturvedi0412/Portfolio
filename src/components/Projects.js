@@ -1,55 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import "./Projects.css"; // Create this for styling
+import "./Projects.css";
 
 const projectsData = [
-  
   {
     title: "Crypto Tracker",
     category: "Frontend",
     image: "/Crypto.png",
     description: "Live crypto price tracker with chart and filter options using external APIs.",
-    tech: ["React", "Chart.js", "REST API"],
+    tech: ["React", "API", "Chart.js", "JavaScript", "HTML", "CSS",],
     link: "https://crypto-tracker-mu-ivory.vercel.app/",
     github: "https://github.com/omchaturvedi0412/cryptotracker"
   },
-  
+  {
+    title: "Nexura Website",
+    category: "Frontend",
+    image: "/nexura.png",
+    description: "A website for the club Nexura at RGPV.",
+        tech: ["React", "API", "JavaScript", "HTML", "CSS",],
+
+    link: "https://nexura-sigma.vercel.app/",
+    github: "https://github.com/omchaturvedi0412/cryptotracker"
+  },
+  {
+    title: "EvolveEdge Website",
+    category: "Frontend",
+    image: "/EvolveEdge.png",
+    description: "A website for agency EvolveEdge.",
+        tech: ["React", "API", "JavaScript", "HTML", "CSS",],
+
+    link: "https://evolve-edge.vercel.app/",
+    github: "https://github.com/omchaturvedi0412/cryptotracker"
+  },
 ];
 
-const categories = ["All", "Frontend", "Backend", "Fullstack"];
-
 const Projects = ({ darkMode }) => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [filteredProjects, setFilteredProjects] = useState(projectsData);
-
-  useEffect(() => {
-    if (selectedCategory === "All") {
-      setFilteredProjects(projectsData);
-    } else {
-      setFilteredProjects(
-        projectsData.filter(project => project.category === selectedCategory)
-      );
-    }
-  }, [selectedCategory]);
-
   return (
-    <section className={`projects-section ${darkMode ? "dark" : ""}`}>
+    <section id="projects" className={`projects-section ${darkMode ? "dark" : ""}`}>
       <h2 className="projects-title">My Projects</h2>
 
-      <div className="project-filters">
-        {categories.map(category => (
-          <button
-            key={category}
-            className={`project-filter-btn ${selectedCategory === category ? "active" : ""}`}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
       <div className="projects-grid">
-        {filteredProjects.map((project, index) => (
+        {projectsData.map((project, index) => (
           <motion.div
             className="project-card"
             key={index}
@@ -66,7 +57,7 @@ const Projects = ({ darkMode }) => {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="tech-stack">
-                {project.tech.map((tech, idx) => (
+                {project.tech?.map((tech, idx) => (
                   <span key={idx} className="tooltip">
                     {tech}
                     <span className="tooltiptext">{tech}</span>
@@ -75,7 +66,7 @@ const Projects = ({ darkMode }) => {
               </div>
               <div className="project-links">
                 <a href={project.link} target="_blank" rel="noreferrer">Live</a>
-                <a href={project.github} target="_blank" rel="noreferrer">Code</a>
+                
               </div>
             </div>
           </motion.div>

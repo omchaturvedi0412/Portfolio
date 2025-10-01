@@ -21,11 +21,12 @@ const NavbarSimple = ({ darkMode, setDarkMode }) => {
           <span className="slider"></span>
         </label>
         <Link to="/">Home</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/skills">Skills</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/resume">Resume</Link>
-        <Link to="/contact">Contact</Link>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+
+        <a href="#projects">Projects</a>
+        <a href="/assets/OM resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   );
