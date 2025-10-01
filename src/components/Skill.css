@@ -1,123 +1,229 @@
 .skills-section {
-    padding: 60px 20px;
-    transition: all 0.3s ease;
-  }
-  .skills-section.dark {
-    background-color: #0b0b0b;
-    color: #fff;
-  }
-  .skills-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    font-weight: bold;
-  }
-  .filter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  .filter-btn {
-    background: transparent;
-    border: 2px solid #aaa;
-    color: #aaa;
-    padding: 8px 18px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  .filter-btn:hover,
-  .filter-btn.active {
-    background: #ff4c60;
-    border-color: #ff4c60;
-    color: white;
-  }
+  padding: 60px 20px;
+  transition: all 0.3s ease;
+}
+
+.skills-section.dark {
+  background-color: #0b0b0b;
+  color: #fff;
+}
+
+.skills-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Filter buttons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 2px solid #aaa;
+  color: #aaa;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #ff4c60;
+  border-color: #ff4c60;
+  color: white;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 skills per row */
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Skill Card */
+.skill-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px) rotateX(1deg);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ff4c60;
+  position: relative;
+}
+
+/* Progress Bar */
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #ff4c60;
+  animation: fillProgress 2s ease forwards;
+}
+
+.percent-label {
+  font-weight: 500;
+}
+
+@keyframes fillProgress {
+  from { width: 0; }
+}
+
+/* Dark Mode */
+.skills-section.dark .skill-card {
+  background: #222;
+  color: #fff;
+}
+
+.skills-section.dark .progress-bar {
+  background: #444;
+}
+
+.skills-section.dark .progress-fill {
+  background: #0af;
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 10;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* --- RESPONSIVE --- */
+
+/* Tablets: 1024px and below */
+@media (max-width: 1024px) {
   .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-    max-width: 1100px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr); /* 3 skills per row */
+    gap: 20px;
   }
+
+  .skills-title {
+    font-size: 2.2rem;
+  }
+
+  .filter-btn {
+    padding: 6px 15px;
+    font-size: 0.9rem;
+  }
+
   .skill-card {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    transition: transform 0.3s ease;
-    position: relative;
+    padding: 18px;
   }
-  .skill-card:hover {
-    transform: translateY(-5px) rotateX(1deg);
-  }
+
   .icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color:  #ff4c60;
-    position: relative;
+    font-size: 2.2rem;
   }
-  .progress-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
+}
+
+/* Mobile: 768px and below */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 skills per row */
+    gap: 15px;
   }
+
+  .skills-title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  .skill-card {
+    padding: 15px;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+
   .progress-bar {
-    flex: 1;
-    height: 8px;
-    background: #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-right: 10px;
+    height: 6px;
   }
-  .progress-fill {
-    height: 100%;
-    background:  #ff4c60;
-    animation: fillProgress 2s ease forwards;
+}
+
+/* Extra small devices: 480px and below */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 7.5rem); /* 1 skill per row */
+    gap: 12px;
   }
-  .percent-label {
-    font-weight: 500;
+
+  .skills-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
   }
-  @keyframes fillProgress {
-    from {
-      width: 0;
-    }
+
+  .skill-card {
+    padding: 12px;
   }
-  .dark .skill-card {
-    background: #222;
-    color: #fff;
+
+  .icon {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
   }
-  .dark .progress-bar {
-    background: #444;
+
+  .progress-bar {
+    height: 5px;
   }
-  .dark .progress-fill {
-    background: #0af;
+
+  .filter-btn {
+    padding: 5px 12px;
+    font-size: 0.8rem;
   }
-  .tooltip {
-    position: relative;
-    display: inline-block;
-  }
-  .tooltiptext {
-    visibility: hidden;
-    width: max-content;
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    padding: 6px 10px;
-    border-radius: 5px;
-    position: absolute;
-    z-index: 10;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
-  
+}

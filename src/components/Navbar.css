@@ -1,128 +1,164 @@
 .topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdfdfd;
+  padding: 15px 25px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  position: relative;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Title */
+.nav-title {
+  flex: 1;
+}
+
+.Portfolio_Navbar_Simple_Title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Nav Links */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.nav-right a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+  color: #007bff;
+}
+
+/* Dark Mode */
+.topnav.dark {
+  background-color: #111;
+}
+
+.topnav.dark .Portfolio_Navbar_Simple_Title,
+.topnav.dark .nav-right a {
+  color: #fff;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  width: 45px;
+  height: 22px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bbb;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #00d084;
+}
+
+input:checked + .slider:before {
+  transform: translateX(23px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #222;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.topnav.dark .hamburger span {
+  background-color: #fff;
+}
+
+/* Hamburger animation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fdfdfd;
-    padding: 15px 25px;
-    transition: background-color 0.4s ease, color 0.4s ease;
-    flex-wrap: wrap;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
   }
-  
-  .nav-title {
-    flex: 1;
-  }
-  
+
   .nav-right {
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .nav-right a {
-    color: #222;
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-right a:hover {
-    color: #007bff;
-  }
-  
-  .topnav.dark {
-    background-color: #111;
-    box-shadow: 0 2px 15px rgba(0, 255, 255, 0.1);
-  }
-  
-  .topnav.dark .nav-right a {
-    color: #f0f0f0;
-  }
-  
-  .toggle-switch {
-    position: relative;
-    width: 45px;
-    height: 22px;
-    margin-right: 15px;
-  }
-  
-  .toggle-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #bbb;
-    transition: 0.4s;
-    border-radius: 20px;
+    top: 65px;
+    right: 20px;
+    background: inherit;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 10px;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
-  
-  .slider:before {
-    content: "";
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
+
+  .nav-right.show {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
   }
-  
-  input:checked + .slider {
-    background-color: #00d084;
+
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
-  
-  input:checked + .slider:before {
-    transform: translateX(23px);
-  }
-  
-  /* Title text */
-  .Portfolio_Navbar_Simple_Title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #111;
-    margin: 0;
-    transition: color 0.3s ease;
-  }
-  
-  .topnav.dark .Portfolio_Navbar_Simple_Title {
-    color: #fff;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .topnav {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .nav-right {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 10px;
-    }
-  
-    .nav-right a {
-      margin: 5px 0;
-    }
-  
-    .toggle-switch {
-      margin-bottom: 10px;
-    }
-  
-    .Portfolio_Navbar_Simple_Title {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-  }
+}
