@@ -14,22 +14,32 @@ const projectsData = [
   },
   {
     title: "Nexura Website",
-    category: "Frontend",
+    category: "Full Stack",
     image: "/nexura.png",
     description: "A website for the club Nexura at RGPV.",
-        tech: ["React", "API", "JavaScript", "HTML", "CSS",],
+        tech: ["React", "JavaScript", "HTML", "CSS",],
 
     link: "https://nexura-sigma.vercel.app/",
     github: "https://github.com/omchaturvedi0412/cryptotracker"
   },
   {
     title: "EvolveEdge Website",
-    category: "Frontend",
+    category: "Full Stack",
     image: "/EvolveEdge.png",
     description: "A website for agency EvolveEdge.",
-        tech: ["React", "API", "JavaScript", "HTML", "CSS",],
+        tech: ["React", "JavaScript", "HTML", "CSS",],
 
     link: "https://evolve-edge.vercel.app/",
+    github: "https://github.com/omchaturvedi0412/cryptotracker"
+  },
+  {
+    title: "Portfolio Website",
+    category: "Full Stack",
+    image: "/portfolio.png",
+    description: "A website for my own portfolio.",
+        tech: ["React", "JavaScript", "HTML", "CSS",],
+
+    link: "https://portfolio-tegv.vercel.app/",
     github: "https://github.com/omchaturvedi0412/cryptotracker"
   },
 ];
