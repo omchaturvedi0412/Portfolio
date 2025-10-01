@@ -5,9 +5,12 @@ import { FaLinkedin, FaGithub, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const texts = [
-  "I'm a Developer",
-  "I love Clean Code",
-  "I build Modern Web Apps"
+  "A Full-Stack Developer.",
+  "A Video Editor",
+  "A UIUX Designer.",
+  "CyberSecurity Expert.",
+  
+
 ];
 
 const Hero = ({ darkMode }) => {
